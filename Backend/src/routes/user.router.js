@@ -1,11 +1,9 @@
-
 import express from 'express';
-// import { Task } from './models/task.model.js';
-import {getAllTasks,insertTask} from './controller/user.controller.js'
-const router =express.Router();
+import { getAllTasks, insertTask } from '../controllers/user.controller.js';
+const router = express.Router();
 
-router.get('/get-user-tasks/:userId',getAllTasks);
+router.get('/get-user-tasks/:userId', getAllTasks);
 
-router.post('/insert-task',insertTask);
+router.post('/insert-task', insertTask);
 
 export default router;
