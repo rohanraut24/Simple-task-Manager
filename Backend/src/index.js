@@ -22,6 +22,7 @@ app.post('/api/insert-task',async(req,res)=>{
 
       try{
            const task=await Task.create({title,content,user : userId});
+           res.json({success : true ,msg : "task added successfully",task});
            console.log("Task inserted successfully"); 
       }catch(err){
             res.json({success : false ,msg : "error while adding task",err});
