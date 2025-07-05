@@ -29,4 +29,18 @@ async function insertTask(req, res) {
     }
 }
 
-export { getAllTasks, insertTask };
+async function deleteTask(req,res){
+      const {taskId}=req.params.taskId;
+      if(!taskId){
+          return res.status(400).json({success : false,msg : "task id required"});
+      }
+      try{
+           const deletedTask=await Task.findOneAndDelete({_id : taskId});
+           console.log("task deleted");
+           res.status(200).json({success : true,msg : "task deleted success",deletedTask});
+      }catch(err){
+           res.json({success : false,msg : "Error while deleting task",err});
+      }
+}
+
+export { getAllTasks, insertTask ,deleteTask};
