@@ -9,6 +9,9 @@ const port =process.env.PORT;
 const app =express();
 
 app.use(express.json());
+app.get('/',(req,res)=>{
+      res.json({msg : "Hello From Backend"});
+})
 app.use("/api/auth",authRouter);
 app.use("/api/user",userRouter);
 
